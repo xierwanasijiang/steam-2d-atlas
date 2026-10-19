@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>二维之间 · Steam 纯 2D 游戏图鉴</title>
+  <meta name="description" content="一份有截图、有来源的纯二维游戏美术图鉴。按游戏类型探索 Steam 高口碑作品，比较像素、手绘与动画的视觉语言。">
+  <meta name="theme-color" content="#edf2f4"><link rel="stylesheet" href="style.css">
+  <script defer src="data.js"></script><script defer src="filter.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#catalog">跳到游戏图鉴</a>
+<header class="masthead"><a class="brand" href="./"><span class="brand-symbol" aria-hidden="true">▱</span><strong>二维之间</strong><span class="brand-en">THE 2D ATLAS</span></a><div class="mast-actions"><span class="edition">STEAM · 2026 / 10</span><button class="text-button" id="about">收录方法 ↗</button><a class="text-button export-link" href="catalog.json" download>下载数据 ↓</a></div></header>
+<main>
+  <section class="intro" aria-labelledby="page-title">
+    <div class="intro-copy"><p class="eyebrow">A FIELD GUIDE TO TWO-DIMENSIONAL WORLDS</p><h1 id="page-title">从玩法，<br>读懂二维世界。</h1><p class="intro-text">看核心循环，看画面组织，也看信息与反馈。<br>为二维游戏开发建立可对照的参考库。</p><div class="intro-actions"><a class="primary" href="#catalog">进入图鉴 <span>↓</span></a><span class="scope-note">纯 2D 收录 / 排除 2.5D</span></div></div>
+    <div class="hero-art" id="hero-art"><div class="hero-caption"><span>本期封面 · GRIS</span><span>色彩，是世界的叙事。</span></div></div>
+  </section>
+  <section class="collection-bar" aria-label="图鉴概况"><div><strong id="main-count">—</strong><span>正式收录</span></div><div><strong id="category-count">—</strong><span>有作品的类型</span></div><div><strong>90<span>%</span></strong><span>最低 Steam 好评率</span></div><p id="snapshot-label">实时获取后冻结的数据快照</p></section>
+  <section class="catalog-layout" id="catalog" aria-label="游戏图鉴">
+    <aside class="sidebar"><div class="sidebar-top"><p class="eyebrow">EXPLORE BY GENRE</p><h2>按玩法研究</h2></div><nav id="category-nav" aria-label="游戏类型"></nav><div class="sidebar-note"><span class="status-dot"></span><b>只看纯二维</b><p>二维角色与场景；边界不明的作品不进入正式图鉴。</p><button class="text-button" id="boundary">查看边界与未收录 ↗</button></div></aside>
+    <div class="catalog-main">
+      <div class="toolbar"><div class="search-wrap"><span aria-hidden="true">⌕</span><label class="sr-only" for="search">搜索中文、英文名或类型</label><input id="search" type="search" placeholder="搜索游戏、中文名或类型…" autocomplete="off"><kbd>/</kbd></div><button id="favorites" class="control" aria-pressed="false">♡ 收藏 <span id="favorite-count">0</span></button><div class="view-switch" role="group" aria-label="显示方式"><button id="exhibition" class="active" aria-pressed="true" title="展览视图">展览</button><button id="compact" aria-pressed="false" title="紧凑视图">速览</button></div></div>
+      <div class="research-filters"><label>细分玩法<select id="subgenre"><option value="">全部细分玩法</option></select></label><label>流程结构<select id="structure"><option value="">全部结构</option></select></label><button id="taxonomy-map" class="text-button">分类地图与研究方法 ↗</button></div>
+      <div class="filters"><label>美术风格<select id="style"><option value="">全部风格</option></select></label><label>收录范围<select id="tier"><option value="main">正式图鉴 · ≥500 条</option><option value="discovery">小众发现 · 100–499 条</option><option value="all">全部收录</option></select></label><label>好评率<select id="minRate"><option value="90">90% 以上</option><option value="95">95% 以上</option><option value="98">98% 以上</option></select></label><label>排序<select id="sort"><option value="curated">策展顺序</option><option value="rating">好评率优先</option><option value="reviews">评价数量优先</option><option value="name">英文名称 A–Z</option></select></label></div>
+      <div class="results-heading"><div><h2 id="current-category">全部类型</h2><span id="result-count" aria-live="polite"></span></div><button id="reset" class="text-button">重置筛选 ↺</button></div>
+      <p class="data-note">好评率：全部语言 / 全部时间 / Steam 购买者。美术观察基于官方截图与资料；未进行完整通关或性能实测。</p>
+      <details class="research-guide"><summary id="guide-title">如何使用这份开发参考库</summary><div id="guide-content"></div></details>
+      <div id="games" class="games"></div><div id="empty" class="empty" hidden><span>∅</span><h3>这个展区暂时没有作品</h3><p>试试放宽筛选条件，或查看其他游戏类型。</p><button id="empty-reset" class="primary">查看全部作品</button></div>
+      <div class="load-area"><button id="load-more" class="control">继续看下一组 ↓</button><p id="shown-count"></p></div>
+    </div>
+  </section>
+  <section class="endnote"><div><p class="eyebrow">ABOUT THIS COLLECTION</p><h2>让截图说话，<br>让数据有出处。</h2></div><div><p>这是一次可追溯的策展式搜集：结合榜单检索、类型补充和官方商店核验，尽量覆盖高口碑作品。它不是 Steam 全量数据库，也不把“高评分”等同于适合所有玩家。</p><p>二维与三维的边界按游戏运行时的画面表现判断；二维视差、光效和预渲染精灵不会单独构成 2.5D。资料不足的作品暂缓收录。</p><button class="text-button" id="method-bottom">阅读筛选标准与数据口径 ↗</button></div></section>
+</main>
+<footer><a class="brand" href="#"><strong>二维之间</strong><span class="brand-en">THE 2D ATLAS</span></a><p>非 Steam 官方网站 · 游戏画面版权归各自权利人所有<br>截图来自官方商店，供游戏介绍与美术研究参考。</p><a class="text-button" href="#">回到顶部 ↑</a></footer>
+<dialog id="lightbox" aria-labelledby="lightbox-title"><div class="lightbox-top"><div><h2 id="lightbox-title"></h2><p id="lightbox-counter"></p></div><button id="close-lightbox" class="icon-button" aria-label="关闭大图">×</button></div><div class="lightbox-stage"><button id="prev-image" class="image-arrow" aria-label="上一张截图">‹</button><img id="lightbox-image" alt=""><button id="next-image" class="image-arrow" aria-label="下一张截图">›</button></div><p class="lightbox-help">← → 切换截图 · Esc 关闭 · 官方实机截图</p></dialog>
+<dialog id="info-dialog" aria-labelledby="info-title"><div class="info-top"><h2 id="info-title">收录方法</h2><button id="close-info" class="icon-button" aria-label="关闭说明">×</button></div><div id="info-content"></div></dialog>
+<div id="toast" role="status"></div>
+<noscript>请启用 JavaScript 查看交互图鉴。你也可以下载 <a href="catalog.json">完整游戏数据</a>。</noscript>
+</body></html>
